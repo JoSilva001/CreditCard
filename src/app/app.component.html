@@ -1,58 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastre-se</title>
-</head>
-
 <body>
-  <main>
     <section>
       <img src="../assets/bg-main-desktop.png">
     </section>
     <section class="cartoes">
       <div id="card-front">
         <img src="../assets/card-logo.svg">
-        <h1>0000 0000 0000 0000 0000</h1>
+        <h1 *ngIf="!numero">0000 0000 0000 0000</h1>
+        <h1 >{{numero}}</h1>
         <div>
-          <p> esse é o nome {{text}}</p>
-          <p>00/00</p>
+          <p *ngIf="nome ==''">Ciclano da Silva</p>
+          <p>{{nome}}</p>
+          <p *ngIf="!mm; else other_content">00/00</p>
+          <ng-template #other_content>{{mm}}/{{yy}}</ng-template>
 
         </div>
         <!-- <img src="../assets/bg-card-front.png"> -->
       </div>
       <div>
-        <h1 id="teste1">123</h1>
+        <h1 *ngIf="!cvc" id="cvc">123</h1>
+        <h1 id="cvc">{{cvc}}</h1>
         <img id="card-back" src="../assets/bg-card-back.png">
       </div>
     </section>
    
     <section id="formulário">
       <form>
-
-
       <div id="nome-numero">
         <label for="nome">Nome Titular</label>
-        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="text" placeholder="ex.: joão da silva" type="text">
+        <input maxlength="27" name="text" [(ngModel)]="nome" placeholder="ex.: Ciclano da Silva" type="text">
         <label for="numero">Número do Cartão</label>
-        <input  placeholder="ex.: 123 426 664 418" type="text">
+        <input maxlength="19" name="numero" (input)="atualizarFormat($event)" [(ngModel)]="numero" placeholder="ex.: 234 4260 6263 4225" type="text">
       </div>
       <div class="data-cvc">
         <div id="data">
-
           <label for="data">Data exp. (mm/yy)</label>
           <div id="data-input">
 
-            <input maxlength="2" placeholder="MM" >
-            <input maxlength="2" placeholder="YY">
+            <input name="mm" [(ngModel)]="mm" maxlength="2" placeholder="MM" >
+            <input name="yy" [(ngModel)]="yy" maxlength="2" placeholder="YY">
           </div>
         </div>
         <div id="cvc">
-
           <label for="cvc">CVC</label>
-          <input placeholder="ex.: 123"  type="number">
+          <input name="cvc" [(ngModel)]="cvc" maxlength="3" placeholder="ex.: 123">
         </div>
         </div>
 
@@ -62,8 +55,6 @@
       
     
     </section>
-
-  </main>
 </body>
 
 </html>

@@ -6,10 +6,9 @@
 html{
     height: 100vh;
 }
-main{
+body{
     display: flex;
     flex-direction: row;
-
 }
 .imagem-de-fundo{
 position: relative;
@@ -26,7 +25,7 @@ z-index: -1;
     position: absolute;
     font-family: "Space Grotesk", serif;
     color: white;
-    #teste1{
+    #cvc{
         font-size: 20px;
         z-index: 999;
         position: absolute;
@@ -41,12 +40,12 @@ z-index: -1;
             padding-bottom: 75px ;
         }
         h1{
-            letter-spacing: 5px;    
-            font-size: 20px;
+            letter-spacing: 5.5px;    
+            font-size: 25px;
         }
         div{
             font-size: 20px;
-            padding-top: 30px;
+            padding-top: 18px;
             width: 97.3%;
             display: flex;
             flex-direction: row;
@@ -71,11 +70,11 @@ z-index: -1;
     display: flex;
     width: 100%;
     align-items: center;
-    transform: translateX(10%);
+    transform: translateX(40%);
     justify-content: center;
     flex-direction: column;
     form{
-        width: 40%;
+        width: 60%;
         height: 40%;
         /* display: flex;
         flex-direction: column; */
@@ -126,6 +125,9 @@ z-index: -1;
         width: 100%;
         padding: 4%;
         border-radius: 5px;
+       }
+       button:hover{
+        cursor: pointer;
        }
         /* input{
             padding: 4%;
