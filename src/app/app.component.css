@@ -1,29 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
 /* @import "primeng/resources/themes/lara-light-blue/theme.css"; */
 /* @import "primeng/resources/primeng.css"; */
-html{
-    height: 100vh;
-}
+/* @import "primeng/resources/themes/lara-light-blue/theme.css"; */
+/* @import "primeng/resources/primeng.css"; */
+
 body{
+    font-family: "Space Grotesk", serif;
     display: flex;
     flex-direction: row;
 }
-.imagem-de-fundo{
-position: relative;
-z-index: -1;
-
+.secEsquerda{
+    width: 50%;
+    height: 100vh; /* Altura desejada */
+    overflow: hidden; /* Esconde partes fora da área */
+    position: relative;
+}
+.imgFundo{
+    width: 100%; /* Ajusta a largura */
+    height: 100%; /* Ajusta a altura */
+    object-fit: cover; /* Mantém proporção e corta o excesso */
 }
 .cartoes{
     display: flex;
     flex-direction: column;
     z-index: 999;
     left: 12%;
-    top:30%;
+    top:5%;
     gap: 40px;
     position: absolute;
-    font-family: "Space Grotesk", serif;
     color: white;
     #cvc{
         font-size: 20px;
@@ -68,13 +72,13 @@ z-index: -1;
 #formulário{
 
     display: flex;
-    width: 100%;
+    width: 50%;
     align-items: center;
-    transform: translateX(40%);
+    transform: translateX(50%);
     justify-content: center;
     flex-direction: column;
     form{
-        width: 60%;
+        width: 70%;
         height: 40%;
         /* display: flex;
         flex-direction: column; */
@@ -84,9 +88,15 @@ z-index: -1;
         }
         input{
             padding: 2%;
-            margin-bottom: 20px;
             border: #adadadb7 1px solid;
             border-radius: 5px;
+        }
+        .erro{
+            height: 20px;
+        }
+        p{
+            color: red;
+            font-size: 10px;
         }
     
         div{
@@ -109,7 +119,7 @@ z-index: -1;
                     justify-content: center;
                     align-items: center;
                     width: 35%;
-                }
+                }   
                 }
             }
             #cvc{
@@ -124,10 +134,18 @@ z-index: -1;
         border: none;
         width: 100%;
         padding: 4%;
+        margin-top: 2%;
         border-radius: 5px;
        }
        button:hover{
         cursor: pointer;
+       }
+       input:hover{
+        border:  #3b3a3ad7 1px solid;
+        transition:.6s ease;
+       }
+       input{
+        transition:.6s ease;
        }
         /* input{
             padding: 4%;
@@ -137,7 +155,26 @@ z-index: -1;
              height: 9%;
         
         } */
-        
-    
     }
+}
+.dadosEnviados{
+
+    display: flex;
+    width: 50%;
+    align-items: center;
+    transform: translateX(80%);
+    justify-content: center;
+    flex-direction: column;
+    gap:20px;
+
+    button{
+        color: #FFFFFF;
+        background-color: #22092F;
+        border: none;
+        width: 100%;
+        padding: 4%;
+        margin-top: 2%;
+        border-radius: 5px;
+    }
+
 }

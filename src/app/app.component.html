@@ -2,59 +2,93 @@
 <html lang="pt-BR">
 
 <body>
-    <section>
-      <img src="../assets/bg-main-desktop.png">
-    </section>
-    <section class="cartoes">
-      <div id="card-front">
-        <img src="../assets/card-logo.svg">
-        <h1 *ngIf="!numero">0000 0000 0000 0000</h1>
-        <h1 >{{numero}}</h1>
-        <div>
-          <p *ngIf="nome ==''">Ciclano da Silva</p>
-          <p>{{nome}}</p>
-          <p *ngIf="!mm; else other_content">00/00</p>
-          <ng-template #other_content>{{mm}}/{{yy}}</ng-template>
-
-        </div>
-        <!-- <img src="../assets/bg-card-front.png"> -->
-      </div>
+  <section class="secEsquerda">
+    <img id="imgFundo" src="../assets/bg-main-desktop.png">
+  </section>
+  <section class="cartoes">
+    <div id="card-front">
+      <img src="../assets/card-logo.svg">
+      <h1 *ngIf="!numero">0000 0000 0000 0000</h1>
+      <h1>{{numero}}</h1>
       <div>
-        <h1 *ngIf="!cvc" id="cvc">123</h1>
-        <h1 id="cvc">{{cvc}}</h1>
-        <img id="card-back" src="../assets/bg-card-back.png">
+        <p *ngIf="nome ==''">Titular do Cartão</p>
+        <p>{{nome}}</p>
+        <p *ngIf="!mm; else other_content">00/00</p>
+        <ng-template #other_content>{{mm}}/{{yy}}</ng-template>
+
       </div>
-    </section>
-   
-    <section id="formulário">
-      <form>
+      <!-- <img src="../assets/bg-card-front.png"> -->
+    </div>
+    <div>
+      <h1 *ngIf="!cvc" id="cvc">123</h1>
+      <h1 id="cvc">{{cvc}}</h1>
+      <img id="card-back" src="../assets/bg-card-back.png">
+    </div>
+  </section>
+
+  <section *ngIf="dadosEnviados" id="formulário">
+    <form [formGroup]="formulario" (ngSubmit)="onConfirmar()">
       <div id="nome-numero">
         <label for="nome">Nome Titular</label>
-        <input maxlength="27" name="text" [(ngModel)]="nome" placeholder="ex.: Ciclano da Silva" type="text">
+        <input maxlength="27" formControlName="nome" [(ngModel)]="nome" placeholder="ex.: Titular do Cartão" type="text">
+        <div class="erro">
+          <p *ngIf="exibirErro(formulario.get('nome'))?.['letraInvalida']"> Formato errado, somente letras.</p>
+          <p *ngIf="exibirErro(formulario.get('nome'))?.['required']"> Campo não pode ser branco.</p>
+          <p *ngIf="exibirErro(formulario.get('nome'))?.['minimoDoisNomes']"> Digite no mínimo dois nomes.</p>
+        </div>
+        <!-- <pre>{{ formulario.get('nome')?.errors | json }}</pre> -->
         <label for="numero">Número do Cartão</label>
-        <input maxlength="19" name="numero" (input)="atualizarFormat($event)" [(ngModel)]="numero" placeholder="ex.: 234 4260 6263 4225" type="text">
+        <input  maxlength="19" formControlName="numero" (input)="atualizarFormat($event)" [(ngModel)]="numero"
+          placeholder="ex.: 234 4260 6263 4225" type="text">
+        <div class="erro">
+          <p *ngIf="exibirErro(formulario.get('numero'))?.['numeroInvalido']"> Formato errado, somente números.</p>
+          <p *ngIf="exibirErro(formulario.get('numero'))?.['minlength']"> Preencha todo o campo.</p>
+          <p *ngIf="exibirErro(formulario.get('numero'))?.['required']"> Campo não pode ser branco.</p>
+        </div>
       </div>
       <div class="data-cvc">
         <div id="data">
           <label for="data">Data exp. (mm/yy)</label>
           <div id="data-input">
 
-            <input name="mm" [(ngModel)]="mm" maxlength="2" placeholder="MM" >
-            <input name="yy" [(ngModel)]="yy" maxlength="2" placeholder="YY">
+            <input formControlName="mm" [(ngModel)]="mm"  maxlength="2" placeholder="MM">
+
+            <input formControlName="yy" [(ngModel)]="yy" maxlength="2" placeholder="YY">
+
+          </div>
+          <div class="erro">
+            <p *ngIf="exibirErro(formulario.get('mm'))?.['numeroInvalido']"> somente números.</p>
+            <p *ngIf="exibirErro(formulario.get('mm'))?.['required']"> Campo não pode ser branco.</p>
+            <p *ngIf="exibirErro(formulario.get('mm'))?.['minlength']"> Preencha todo o campo.</p>
+            <p *ngIf="exibirErro(formulario.get('yy'))?.['numeroInvalido']"> somente números.</p>
+            <p *ngIf="exibirErro(formulario.get('yy'))?.['required']"> Campo não pode ser branco.</p>
+            <p *ngIf="exibirErro(formulario.get('yy'))?.['minlength']"> Preencha todo o campo.</p>
           </div>
         </div>
         <div id="cvc">
           <label for="cvc">CVC</label>
-          <input name="cvc" [(ngModel)]="cvc" maxlength="3" placeholder="ex.: 123">
-        </div>
-        </div>
+          <input formControlName="cvc" maxlength="3" placeholder="ex.: 123">
+          <div class="erro">
 
-        <button type="submit">Confirmação</button>
-      </form>
+            <p *ngIf="exibirErro(formulario.get('cvc'))?.['numeroInvalido']"> Formato errado, somente números.</p>
+            <p *ngIf="exibirErro(formulario.get('cvc'))?.['required']"> Campo não pode ser branco.</p>
+            <p *ngIf="exibirErro(formulario.get('cvc'))?.['minlength']"> Preencha todo o campo.</p>
+          </div>
+        </div>
+      </div>
 
-      
-    
-    </section>
+      <button type="submit">Confirmação</button>
+    </form>
+  </section>
+  <section class="dadosEnviados" *ngIf="!dadosEnviados">
+   
+    <img src="../assets/icon-complete.svg">
+    <h1>Obrigado!!</h1>
+    <h3>Nós adicionamos seus detalhes do cartão</h3>
+    <button style="cursor:pointer" type="button" (click)="retorno()">Continue</button>
+
+
+  </section>
 </body>
 
 </html>
