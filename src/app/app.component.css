@@ -1,60 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
-/* @import "primeng/resources/themes/lara-light-blue/theme.css"; */
-/* @import "primeng/resources/primeng.css"; */
-/* @import "primeng/resources/themes/lara-light-blue/theme.css"; */
-/* @import "primeng/resources/primeng.css"; */
 
-*{
+* {
     box-sizing: border-box;
 }
-body{
+
+body {
     padding: 0px;
     margin: 0px;
     font-family: "Space Grotesk", serif;
     display: flex;
     flex-direction: row;
-    background: blue;
+    width: 100vw;
+    height: 100vh;
 }
-.secEsquerda{
+
+.secEsquerda {
     display: inline-flexbox;
     width: 50%;
-    height: 100vh; /* Altura desejada */
-    overflow: hidden; /* Esconde partes fora da área */
+    height: 100vh;
+    overflow: hidden;
     position: relative;
 }
-.imgFundo{
-    width: 100%; /* Ajusta a largura */
-    height: 100%; /* Ajusta a altura */
-    object-fit: cover; /* Mantém proporção e corta o excesso */
+
+.imgFundo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.cartoes{
+
+.cartoes {
     display: flex;
     flex-direction: column;
     z-index: 999;
     left: 12%;
-    top:5%;
+    top: 5%;
     gap: 40px;
     position: absolute;
     color: white;
-    #cvc{
+
+    #cvc {
         font-size: 20px;
         z-index: 999;
         position: absolute;
-        left:107%;
-        top:73.4%;
+        left: 107%;
+        top: 73.4%;
     }
-    #card-front{
+
+    #card-front {
         background-repeat: no-repeat;
         padding: 5%;
         background-image: url("../assets/bg-card-front.png");
-        img{
-            padding-bottom: 75px ;
+
+        img {
+            padding-bottom: 75px;
         }
-        h1{
-            letter-spacing: 5.5px;    
+
+        h1 {
+            letter-spacing: 5.5px;
             font-size: 25px;
         }
-        div{
+
+        div {
             font-size: 20px;
             padding-top: 18px;
             width: 97.3%;
@@ -63,118 +69,122 @@ body{
             justify-content: space-between;
         }
     }
-    #card-back{
-      position: relative;
-      left: 25%;
+
+    #card-back {
+        position: relative;
+        left: 25%;
     }
-    div{
+
+    div {
         width: 100%;
-        
+
         justify-content: space-between;
     }
-  
+
 
 }
 
-#formulário{
-    background-color: brown;
+#formulario {
     display: flex;
+    position: relative;
     width: 50%;
     align-items: center;
-    transform: translateX(50%);
     justify-content: center;
     flex-direction: column;
-    form{
-        width: 70%;
+
+    form {
+        width: 60%;
         height: 40%;
-        /* display: flex;
-        flex-direction: column; */
-        /* background: beige;  */
-        label{
+
+        label {
             padding-bottom: 2%;
         }
-        input{
+
+        input {
             padding: 2%;
             border: #adadadb7 1px solid;
             border-radius: 5px;
         }
-        .erro{
-            height: 20px;
+
+        .erro {
+            height: 22px;
         }
-        p{
+
+        p {
             color: red;
             font-size: 10px;
         }
-    
-        div{
+
+        div {
             display: flex;
             flex-direction: column;
         }
-        .data-cvc{
+
+        .data-cvc {
             display: flex;
             flex-direction: row;
-            #data{
+
+            #data {
                 display: flex;
                 flex-direction: column;
-                #data-input{      
-                  gap: 9%;           
-                  display: flex;
-                  flex-direction: row;  
-                input{
-                    padding-left: 3%;
+
+                #data-input {
+                    gap: 9%;
                     display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: 35%;
-                }   
+                    flex-direction: row;
+
+                    input {
+                        padding-left: 3%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 35%;
+                    }
                 }
             }
-            #cvc{
+
+            #cvc {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
             }
         }
-       button{
-        color: #FFFFFF;
-        background-color: #22092F;
-        border: none;
-        width: 100%;
-        padding: 4%;
-        margin-top: 2%;
-        border-radius: 5px;
-       }
-       button:hover{
-        cursor: pointer;
-       }
-       input:hover{
-        border:  #3b3a3ad7 1px solid;
-        transition:.6s ease;
-       }
-       input{
-        transition:.6s ease;
-       }
-        /* input{
+
+        button {
+            color: #FFFFFF;
+            background-color: #22092F;
+            border: none;
+            width: 100%;
             padding: 4%;
-            border-radius: 10px;
-            border: 0.01px solid;
-            gap: 10px;
-             height: 9%;
-        
-        } */
+            margin-top: 2%;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        input:hover {
+            border: #3b3a3ad7 1px solid;
+            transition: .6s ease;
+        }
+
+        input {
+            transition: .6s ease;
+        }
+
     }
 }
-.dadosEnviados{
 
+.dadosEnviados {
     display: flex;
-    width: 50%;
+    height: 100%;
+    width: 100%;
     align-items: center;
-    transform: translateX(80%);
     justify-content: center;
-    flex-direction: column;
-    gap:20px;
 
-    button{
+   
+    button {
         color: #FFFFFF;
         background-color: #22092F;
         border: none;
@@ -184,89 +194,143 @@ body{
         border-radius: 5px;
     }
 
+    #dadosEnviados-conteudo {
+        padding-left: 20%;
+        align-items: center;
+        justify-content: center;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        img {
+            width: 30%;
+        }
+    }
 }
-@media (max-width:894px) {
-    body{
+
+@media (max-width:1320px) {
+    .cartoes {
+        left: 5%;
+    }
+}
+
+@media(max-width: 1212px) {
+    .dadosEnviados {
+        padding-left: 20%;
+    }
+
+}
+
+@media (max-width:1120px) {
+    #formulario{
+        form{
+            width: 65%;
+        }
+    }
+    .cartoes {
+        left: 0%;
+    }
+}
+
+@media (max-width:1020px) {
+    body {
         display: flex;
         flex-direction: column;
         height: min-content;
-        
-    }    
-    .secEsquerda{
-        display: inline-flexbox-;
-        width: 100%;
-        height: 100vh; /* Altura desejada */
-        overflow: hidden; /* Esconde partes fora da área */
-        position: relative;
     }
-    #imgFundo{
-        height: 100%; /* Ajusta a altura */
-        object-fit: cover; /* Mantém proporção e corta o excesso */
+
+    .secEsquerda {
         width: 100%;
-        background: #000;
-       
     }
-    .cartoes{
+
+    #imgFundo {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .cartoes {
         display: flex;
         flex-direction: column-reverse;
-       z-index: 999; 
-        left: 12%;
-        top:5%;
-        gap: 40px;
-        position: absolute;
-        color: white;
-        #cvc{
-            font-size: 20px;
-            z-index: 999;
-            position: absolute;
-            left:107%;
-            top:49.7%;
+        left: 18%;
+        top: 5%;
+
+        #cvc {
+            left: 107%;
+            top: 49.7%;
         }
-        #card-front{
+
+        #card-front {
             z-index: 2;
-            background-repeat: no-repeat;
-            padding: 5%;
-            background-image: url("../assets/bg-card-front.png");
-            img{
-                padding-bottom: 75px ;
-            }
-            h1{
-                letter-spacing: 5.5px;    
-                font-size: 25px;
-            }
-            div{
-                font-size: 20px;
-                padding-top: 18px;
-                width: 97.3%;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-            }
         }
-        #card-back{
-          position: relative;
-          top: 160px;
-          left: 25%;
+
+        #card-back {
+            top: 160px;
+            left: 25%;
         }
-        div{
-            width: 100%;
-            
-            justify-content: space-between;
-        }
-      
     }
-    #formulário{
+
+    #formulario {
         display: flex;
         position: relative;
-        background-color: violet;
+        padding: 10% 0 10% 0;
         width: 100%;
-
-        align-items: center;
         justify-content: center;
-        transform: translateY(50%);
-        form{
-            width: 42%;
+
+        form {
+            width: 50%;
             height: 40%;
+        }
+    }
+
+    .dadosEnviados { 
+        background: beige;
+        padding: 10% 0 10% 0;
+        width: 100%;
+        gap: 20px;
+        #dadosEnviados-conteudo{
+            padding-left: 0%;
+        }
+       
+    }
+   
+}
+
+@media (max-width: 782px) {
+    .cartoes {
+        left: 10%;
+    }
+}
+
+@media (max-width: 644px) {
+    #formulario {
+        form {
+            width: 60%;
+        }
+    }
+}
+
+@media (max-width: 620px) {
+    .cartoes {
+        left: 0%;
+    }
+}
+@media (max-width: 550px) {
+    #formulario {
+        form {
+            width: 70%;
+        }
+    }
+}
+@media (max-width: 556px) {
+    .cartoes {
+        #cvc {
+            left: 97%;
+        }
+
+        #card-back {
+            left: 15%;
         }
     }
 }

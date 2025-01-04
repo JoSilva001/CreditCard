@@ -59,14 +59,10 @@ export class AppComponent {
     this.submitted = true;
     if (this.formulario.invalid) {
       this.formulario.markAllAsTouched();
-      console.log('Formulário inválido:')
       return;
     }
     else{
       this.dadosEnviados = true;
-      console.log('Formulário válido: ', this.formulario.value);
-      console.log(this.dadosEnviados);
-      
     }
   }  
   retorno(){
