@@ -17,7 +17,7 @@
         <ng-template #other_content>{{mm}}/{{yy}}</ng-template>
 
       </div>
-      <!-- <img src="../assets/bg-card-front.png"> -->
+  
     </div>
     <div>
       <h1 *ngIf="!cvc" id="cvc">123</h1>
@@ -26,7 +26,7 @@
     </div>
   </section>
 
-  <section *ngIf="dadosEnviados" id="formulário">
+  <section *ngIf="!dadosEnviados" id="formulário">
     <form [formGroup]="formulario" (ngSubmit)="onConfirmar()">
       <div id="nome-numero">
         <label for="nome">Nome Titular</label>
@@ -80,7 +80,7 @@
       <button type="submit">Confirmação</button>
     </form>
   </section>
-  <section class="dadosEnviados" *ngIf="!dadosEnviados">
+  <section class="dadosEnviados" *ngIf="dadosEnviados" >
    
     <img src="../assets/icon-complete.svg">
     <h1>Obrigado!!</h1>
