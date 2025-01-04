@@ -26,7 +26,7 @@
     </div>
   </section>
 
-  <section *ngIf="dadosEnviados" id="formulario">
+  <section *ngIf="!dadosEnviados" id="formulario">
     <form [formGroup]="formulario" (ngSubmit)="onConfirmar()">
       <div id="nome-numero">
         <label for="nome">Nome Titular</label>
@@ -81,7 +81,7 @@
       <button type="submit">Confirmação</button>
     </form>
   </section>
-  <section class="dadosEnviados" *ngIf="!dadosEnviados">
+  <section class="dadosEnviados" *ngIf="dadosEnviados">
     <div id="dadosEnviados-conteudo">
 
       <img src="../assets/icon-complete.svg">
