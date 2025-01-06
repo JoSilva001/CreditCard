@@ -316,20 +316,19 @@ body {
     }
 }
 @media (max-width: 550px) {
-    #formulario {
-        form {
-            width: 70%;
-        }
-    }
-}
-@media (max-width: 556px) {
     .cartoes {
         #cvc {
-            left: 97%;
+            left: 88%;
+            top: 49.5%;
         }
 
         #card-back {
-            left: 15%;
+            left: 6%;
+        }
+    }
+    #formulario {
+        form {
+            width: 70%;
         }
     }
 }
