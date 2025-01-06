@@ -318,7 +318,7 @@ body {
     .cartoes {
         #cvc {
             left: 88%;
-            top: 49.5%;
+            top: 49.3%;
         }
 
         #card-back {
@@ -328,6 +328,23 @@ body {
     #formulario {
         form {
             width: 70%;
+        }
+    }
+}
+@media (max-width: 520px) {
+    .cartoes {
+        #cvc {
+            left: 84%;
+            top: 49.3%;
+        }
+
+        #card-back {
+            left: 2%;
+        }
+    }
+    #formulario {
+        form {
+            width: 80%;
         }
     }
 }
