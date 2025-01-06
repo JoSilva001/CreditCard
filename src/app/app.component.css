@@ -179,7 +179,7 @@ body {
 .dadosEnviados {
     display: flex;
     height: 100%;
-    width: 100%;
+    width: 50%;
     align-items: center;
     justify-content: center;
 
@@ -195,7 +195,6 @@ body {
     }
 
     #dadosEnviados-conteudo {
-        padding-left: 20%;
         align-items: center;
         justify-content: center;
 
