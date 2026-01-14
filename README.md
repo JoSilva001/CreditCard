@@ -31,3 +31,6 @@ git clone https://github.com/JoSilva001/ambienteDoEscritorio.git
 
 # Instale as dependências
 npm install
+
+# Rode o projeto
+ng serve
