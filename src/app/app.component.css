@@ -5,6 +5,8 @@
 }
 
 body {
+         overflow-y: hidden;
+     overflow-x: hidden;
     padding: 0px;
     margin: 0px;
     font-family: "Space Grotesk", serif;
@@ -22,8 +24,7 @@ body {
     position: relative;
 }
 
-.imgFundo {
-    width: 100%;
+#imgFundo {
     height: 100%;
     object-fit: cover;
 }
@@ -240,6 +241,7 @@ body {
     }
 
     .secEsquerda {
+        height: 60vh;
         width: 100%;
     }
 
@@ -336,9 +338,11 @@ body {
         #cvc {
             left: 84%;
             top: 49.3%;
+
         }
 
         #card-back {
+
             left: 2%;
         }
     }
